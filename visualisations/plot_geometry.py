@@ -53,7 +53,7 @@ def plot_expected_patch_utility(prevalence=1, handling_time=1, q=1, n=3, color="
 
 def get_geometry_plot():
 
-	plt.ylabel("Utility", fontproperties=FONT_PROP)
+	plt.ylabel("Utility")
 
 	xtick_marks = ['']*30
 	xtick_marks[10] = r"$\frac{1}{\lambda_p}$"
@@ -72,7 +72,7 @@ def get_geometry_plot():
 
 	plt.ylim(0,2.2)
 	plt.xlim(0,4.5)
-	plt.xlabel("Time", fontproperties=FONT_PROP)
+	plt.xlabel("Time")
 	ax.spines['right'].set_visible(False)
 	ax.spines['top'].set_visible(False)
 
@@ -97,6 +97,61 @@ def get_geometry_plot():
 	plt.annotate(r"$\bar{r}_p$", (1.6,0.4), fontproperties=FONT_PROP)
 
 
+
+
+def plot_short_vs_long_low_prevalence():
+
+	prevalence = 0.4
+	xlim_right = 8
+
+	AXES_COLOR = "lightgray"
+	plt.xticks([])
+	plt.yticks([])
+
+	ax = plt.gca()
+	ax.spines['right'].set_visible(False)
+	ax.spines['top'].set_visible(False)
+
+	plot_discrete_info_curve(prevalence=prevalence, handling_time=5, q=3, n=1, color=COLOR_FIC, size_ratio=2)
+	plot_expected_patch_utility(prevalence=prevalence, handling_time=5, q=3, n=1, color=COLOR_FIC, size_ratio=2)
+
+	plot_discrete_info_curve(prevalence=prevalence, handling_time=0.7, q=1, n=3, color=COLOR_MAG, size_ratio=2)
+	plot_expected_patch_utility(prevalence=prevalence, handling_time=0.7, q=1, n=3, color=COLOR_MAG, size_ratio=2)
+
+	plt.xlim(left=0, right=xlim_right)
+	plt.ylim(bottom=0)
+
+
+
+def plot_media_category_differences():
+
+
+	AXES_COLOR = "lightgray"
+
+
+	plt.xticks([])
+	plt.yticks([])
+
+	ax = plt.gca()
+	ax.spines['right'].set_visible(False)
+	ax.spines['top'].set_visible(False)
+
+
+
+	plot_discrete_info_curve(prevalence=1, handling_time=5, q=3, n=1, color=COLOR_FIC, size_ratio=2)
+	#plot_expected_patch_utility(prevalence=1, handling_time=5, q=3, n=1, color=COLOR_FIC)
+
+	plot_discrete_info_curve(prevalence=1, handling_time=1, q=1, n=3, color=COLOR_MAG, size_ratio=2)
+
+	plot_expected_patch_utility(prevalence=1, handling_time=1, q=1, n=3, color="silver", size_ratio=2)
+
+
+	plt.xlim(left=0, right=8)
+	plt.ylim(bottom=0)
+
+
+
+
 if __name__=="__main__":
-	get_geometry_plot()
+	plot_short_vs_long_low_prevalence()
 	plt.show()

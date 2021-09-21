@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 from plot_timeseries import get_timeseries_combined_plot_with_conf_intervals
 from plot_boxplots import coha_boxplots
-from plot_geometry import get_geometry_plot
+from plot_geometry import get_geometry_plot, plot_short_vs_long_low_prevalence, plot_media_category_differences
 
 
 def big_fig():
@@ -69,14 +69,23 @@ def big_fig():
 
 	get_geometry_plot()
 	plt.legend()
+	plt.title("Model")
 
 	# Model General
 	ax6 = plt.subplot(gs[2,2])
-	plt.title("Low prevalance model")
+	plot_short_vs_long_low_prevalence()
+	plt.title(r"Low Prevalance, $\lambda$")
+	plt.ylabel("Utility")
+	plt.xlabel("Time")
 
 	# Model General
 	ax7 = plt.subplot(gs[2,3])
-	plt.title("High prevalance")
+
+	plot_media_category_differences()
+	plt.title(r"High Prevalance, $\lambda$")
+	plt.ylabel("Utility")
+	plt.xlabel("Time")
+
 
 
 	plt.tight_layout()
