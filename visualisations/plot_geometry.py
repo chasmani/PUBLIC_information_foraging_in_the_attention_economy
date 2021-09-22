@@ -94,7 +94,7 @@ def get_geometry_plot():
 
 
 
-	plt.annotate(r"$\bar{r}_p$", (1.6,0.4), fontproperties=FONT_PROP)
+	plt.annotate(r"$\bar{r}_p$", (1.6,0.4))
 
 
 
@@ -146,6 +146,10 @@ def plot_media_category_differences():
 	plot_expected_patch_utility(prevalence=1, handling_time=1, q=1, n=3, color="silver", size_ratio=2)
 
 
+	plt.plot(0,0,color=COLOR_FIC, label="Long-form")
+	plt.plot(0,0,color=COLOR_MAG, label="Short-form")
+
+
 	plt.xlim(left=0, right=8)
 	plt.ylim(bottom=0)
 
@@ -153,5 +157,5 @@ def plot_media_category_differences():
 
 
 if __name__=="__main__":
-	plot_short_vs_long_low_prevalence()
+	plot_media_category_differences()
 	plt.show()

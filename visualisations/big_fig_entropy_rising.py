@@ -6,6 +6,11 @@ import matplotlib.pyplot as plt
 from plot_timeseries import get_timeseries_combined_plot_with_conf_intervals
 from plot_icon_conditions import get_entropy_icons_low_prevalence, get_entropy_icons_high_prevalence
 
+import matplotlib.pyplot as plt
+plt.rcParams.update({'font.size': 10})
+
+
+
 def big_fig():
 
 
@@ -56,10 +61,16 @@ def big_fig():
 	ax4 = plt.subplot(gs[6:,:4])
 
 	get_entropy_icons_low_prevalence()
+	plt.ylabel(r"Utility Rate, $r_i$")
+
+	#plt.title(r"Low Prevalence, $\lambda$")
 
 	ax5 = plt.subplot(gs[6:,5:])
 
 	get_entropy_icons_high_prevalence()
+	plt.ylabel(r"Utility Rate, $r_i$")
+
+	#plt.title(r"High Prevalence, $\lambda$")
 
 
 	plt.tight_layout()

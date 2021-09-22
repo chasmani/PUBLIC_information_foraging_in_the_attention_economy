@@ -9,7 +9,7 @@ from matplotlib.transforms import Bbox, TransformedBbox
 
 import scipy.stats
 
-from design_scheme import COLOR_NF, COLOR_FIC, COLOR_NEWS, COLOR_MAG, LINEWIDTH, FONT_PROP, COLOR_3
+from design_scheme import COLOR_NF, COLOR_FIC, COLOR_NEWS, COLOR_MAG, LINEWIDTH, COLOR_3
 
 import os, sys
 sys.path.insert(1, os.path.join(sys.path[0], '..'))
@@ -67,8 +67,6 @@ def get_entropy_rising_icon_graph(seed=3, y_min=3, im_count=10):
 	ax.spines['right'].set_visible(False)
 	ax.spines['top'].set_visible(False)
 	ax.spines['bottom'].set_visible(False)
-
-	plt.ylabel(r"$r_i$")
 
 	plt.xlim(0,10)
 	plt.ylim(0,10)
