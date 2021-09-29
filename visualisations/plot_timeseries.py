@@ -130,7 +130,7 @@ def get_timeseries_combined_plot_with_conf_intervals(measure="H_1"):
 
 
 
-def plot_timeseries_with_media_categories(measure="H_1", annotate=True, categories = ["nf", "fic", "news", "mag"]):
+def plot_timeseries_with_media_categories(measure="H_1", measure_name="Word Entropy", annotate=True, categories = ["nf", "fic", "news", "mag"]):
 
 	plus_minus_years = 5
 
@@ -207,20 +207,21 @@ def plot_timeseries_with_media_categories(measure="H_1", annotate=True, categori
 	ax.spines['top'].set_visible(False)
 
 	plt.xlabel("Year")
-	plt.ylabel("Word Entropy")
+	plt.ylabel(measure_name)
+
+	if measure == "zipf_clauset":
+		plt.gca().invert_yaxis()
 
 	#plt.grid(axis="y")
 
 
 	plt.tight_layout()
 
-	plt.savefig("images/coha_categories_timeseries.png", dpi=300)
-
-
+	plt.savefig("images/coha_categories_timeseries_{}.png".format(measure), dpi=300)
 
 	plt.show()
 
 
 
 if __name__=="__main__":
-	plot_timeseries_with_media_categories()
+	plot_timeseries_with_media_categories(measure="ttr", measure_name="Type Token Ratio")

@@ -78,7 +78,7 @@ def coha_boxplots(measure="H_1"):
 
 
 
-def combined_snapshots(measure="H_1"):
+def combined_snapshots(measure="ttr", measure_name="Type Token Ratio"):
 
 
 
@@ -157,6 +157,8 @@ def combined_snapshots(measure="H_1"):
 
 	ax = plt.gca()
 
+
+
 	# Socials
 	sns.violinplot(data=df, x=measure, y="source category", saturation=0.4, width=1.5, cut=0, inner="quartile", split=True, hue="huecol",  order=social_cats, linewidth=2, palette=[COLOR_SOCIAL])
 
@@ -168,7 +170,7 @@ def combined_snapshots(measure="H_1"):
 
 
 	plt.ylabel("")
-	plt.xlabel("Word Entropy")
+	plt.xlabel(measure_name)
 
 	plt.yticks(range(len(category_ticks)), category_ticks)
 
@@ -176,9 +178,15 @@ def combined_snapshots(measure="H_1"):
 
 	plt.grid(axis="x")
 
-
 	ax = plt.gca()
 	ax.legend().set_visible(False)
+
+	if measure == "zipf_clauset":
+		ax.invert_xaxis()
+
+
+	#plt.savefig("images/word_measure_distributions_{}.png".format(measure), format="png", dpi=300)
+
 
 
 if __name__=="__main__":
@@ -186,5 +194,8 @@ if __name__=="__main__":
 
 	fig = plt.figure(figsize=(fig_width, fig_height*2), constrained_layout=True)
 	
-	combined_snapshots()
+	combined_snapshots(measure="ttr", measure_name="Type Token Ratio")
+
+
+
 	plt.show()
