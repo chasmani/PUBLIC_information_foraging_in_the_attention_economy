@@ -114,7 +114,7 @@ def get_timeseries_combined_plot_with_conf_intervals(measure="H_1"):
 
 
 
-	plt.plot(all_years[:cutoff_index], means[:cutoff_index], alpha=0.2, label=category, linewidth=LINEWIDTH, color="#040404")
+	plt.plot(all_years[:cutoff_index], means[:cutoff_index], alpha=1, label=category, linewidth=LINEWIDTH, color="#040404")
 
 	plt.plot(all_years[cutoff_index:], means[cutoff_index:], label=category, linewidth=LINEWIDTH, color="#040404")
 
@@ -220,6 +220,10 @@ def plot_timeseries_with_media_categories(measure="H_1", measure_name="Word Entr
 	plt.savefig("images/coha_categories_timeseries_{}.png".format(measure), dpi=300)
 
 	plt.show()
+
+
+
+
 
 
 

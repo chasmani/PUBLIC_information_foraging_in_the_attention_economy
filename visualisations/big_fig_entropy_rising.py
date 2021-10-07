@@ -4,7 +4,8 @@ import matplotlib.gridspec as gridspec
 import matplotlib.pyplot as plt
 
 from plot_timeseries import get_timeseries_combined_plot_with_conf_intervals
-from plot_icon_conditions import get_entropy_icons_low_prevalence, get_entropy_icons_high_prevalence
+from plot_prey_choice_diet_distributions import plot_prey_diet_choice_distribution
+from plot_rising_entropy_model import entropy_rising_simulation
 
 import matplotlib.pyplot as plt
 plt.rcParams.update({'font.size': 10})
@@ -57,25 +58,22 @@ def big_fig():
 	ax3.spines['top'].set_visible(False)
 
 
-	# Boxplots
-	ax4 = plt.subplot(gs[6:,:4])
+	# Model
+	ax4 = plt.subplot(gs[6:,:-1])
 
-	get_entropy_icons_low_prevalence()
-	plt.ylabel(r"Utility Rate, $r_i$")
 
-	#plt.title(r"Low Prevalence, $\lambda$")
+	entropy_rising_simulation()
 
-	ax5 = plt.subplot(gs[6:,5:])
-
-	get_entropy_icons_high_prevalence()
-	plt.ylabel(r"Utility Rate, $r_i$")
-
-	#plt.title(r"High Prevalence, $\lambda$")
-
+	ax4.spines['right'].set_visible(False)
+	ax4.spines['top'].set_visible(False)
 
 	plt.tight_layout()
 
-	plt.savefig("images/entropy_rising.tiff", format="tiff", dpi=300)
+	handles, labels = ax4.get_legend_handles_labels()
+	ax4.legend(handles[:], ["Consumed", "Ignored"], title="Information", frameon=True, loc='center left', bbox_to_anchor=(0.97, 0.5))
+
+
+	plt.savefig("images/entropy_rising_new.tiff", format="tiff", dpi=300)
 
 	plt.show()
 

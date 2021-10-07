@@ -33,7 +33,7 @@ def plot_prey_diet_choice_distribution(y=[0,1,1,0,2,1,0,1,0,0,1,2,1,0,0,0,1,1,0,
 	plt.xticks([])
 	plt.yticks([])
 
-	plt.legend()
+
 
 
 
