@@ -78,7 +78,7 @@ def coha_boxplots(measure="H_1"):
 
 
 
-def combined_snapshots(measure="ttr", measure_name="Type Token Ratio"):
+def combined_snapshots(measure="H_1", measure_name="Word Entropy"):
 
 
 

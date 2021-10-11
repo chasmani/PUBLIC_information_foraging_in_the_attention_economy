@@ -56,13 +56,13 @@ def get_geometry_plot():
 	plt.ylabel("Utility")
 
 	xtick_marks = ['']*30
-	xtick_marks[10] = r"$\frac{1}{\lambda_p}$"
-	xtick_marks[20] = r"$\frac{1}{\lambda_p} + \bar{t}_p$"
+	xtick_marks[10] = r"$\frac{1}{\lambda_m}$"
+	xtick_marks[20] = r"$\frac{1}{\lambda_m} + \bar{t}_m$"
 	#xtick_marks[20] = r"$t_h"
 
 
 	ytick_marks = ['']*22
-	ytick_marks[10] = r"$\bar{u}_p$"
+	ytick_marks[10] = r"$\bar{u}_m$"
 
 	plt.xticks(np.arange(0,3,0.1), xtick_marks)
 	plt.yticks(np.arange(0,2.2,0.1), ytick_marks)
@@ -94,7 +94,7 @@ def get_geometry_plot():
 
 
 
-	plt.annotate(r"$\bar{r}_p$", (1.6,0.4))
+	plt.annotate(r"$\bar{r}_m$", (1.6,0.4))
 
 
 

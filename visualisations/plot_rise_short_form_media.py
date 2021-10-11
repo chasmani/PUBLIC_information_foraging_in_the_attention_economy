@@ -16,7 +16,7 @@ def get_min_u(lamb, r, R):
 
 
 
-def plot_min_u_as_lambda(r, linestyle="solid"):
+def plot_min_u_as_lambda(r, linestyle="solid", color="black"):
 	
 	R = 1
 
@@ -28,19 +28,19 @@ def plot_min_u_as_lambda(r, linestyle="solid"):
 		r = "Infinite"
 
 
-	plt.plot(lambs, min_us, linewidth=LINEWIDTH*2, linestyle=linestyle, label=r"r={}".format(r))
+	plt.plot(lambs, min_us, linewidth=LINEWIDTH*2, color=color, linestyle=linestyle, label=r"$\bar{r}_m=$" + str(r))
 	
 
 	
 def plot_min_u_as_lambda_rs():
 
-	plot_min_u_as_lambda(r=float("inf"), linestyle="solid")
-	plot_min_u_as_lambda(r=10, linestyle=(0, (5, 1)))
-	plot_min_u_as_lambda(r=5, linestyle=(0, (5, 3)))
-	plot_min_u_as_lambda(r=3, linestyle=(0, (5, 5)))
+	plot_min_u_as_lambda(r=float("inf"), linestyle="solid", color="#404040")
+	plot_min_u_as_lambda(r=10, linestyle=(0, (5, 1)), color=COLOR_MAG)
+	plot_min_u_as_lambda(r=5, linestyle=(0, (5, 3)), color=COLOR_NEWS)
+	plot_min_u_as_lambda(r=3, linestyle=(0, (5, 5)), color=COLOR_FIC)
 
-	plt.xlabel(r"Information Prevalence, $\lambda$")
-	plt.ylabel(r"Minimum Amount of Information per Media Item, $u_{min}$")
+	plt.xlabel(r"Information Prevalence, $\lambda_m$")
+	plt.ylabel(r"Minimum Size of Information per Media Item, $u_{min}$")
 
 	plt.xlim(0.4,1.1)
 
@@ -50,6 +50,10 @@ def plot_min_u_as_lambda_rs():
 
 	plt.xticks([])
 	plt.yticks([])
+
+	ax=plt.gca()
+	ax.spines['right'].set_visible(False)
+	ax.spines['top'].set_visible(False)
 
 	plt.legend()
 
