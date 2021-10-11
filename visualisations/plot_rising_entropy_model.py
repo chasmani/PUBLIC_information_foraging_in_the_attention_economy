@@ -141,7 +141,7 @@ def entropy_rising_simulation():
 	              data=df, dodge=False, alpha=1, edgecolor="white", linewidth=0.3, size=6, zorder=1, orient="v", palette=palette)
 
 	plt.xlabel(r"Increasing Prevalence, $\lambda$")
-	plt.ylabel(r"Information Utility Rate, $r_p$")
+	plt.ylabel(r"Information Utility Rate, $r_i$")
 
 
 	ax = plt.gca()

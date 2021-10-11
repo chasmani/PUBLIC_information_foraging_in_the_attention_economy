@@ -23,10 +23,10 @@ def big_fig():
 
 
 	# nrows
-	gs = fig.add_gridspec(nrows=10, ncols=9)
+	gs = fig.add_gridspec(nrows=10, ncols=12)
 
 	# Top Left - Timeseries
-	ax1 = plt.subplot(gs[:6,:6])
+	ax1 = plt.subplot(gs[:6,:8])
 
 	get_timeseries_combined_plot_with_conf_intervals(measure="H_1")
 	plt.xlabel("Year")
@@ -36,7 +36,7 @@ def big_fig():
 	ax1.spines['top'].set_visible(False)
 
 	# Robustness - TTR
-	ax2 = plt.subplot(gs[:3,6:])
+	ax2 = plt.subplot(gs[:3,8:])
 
 	get_timeseries_combined_plot_with_conf_intervals(measure="ttr")
 	plt.xlabel("Year")
@@ -47,7 +47,7 @@ def big_fig():
 
 
 	# Robustness - Zif
-	ax3 = plt.subplot(gs[3:6,6:])
+	ax3 = plt.subplot(gs[3:6,8:])
 
 	get_timeseries_combined_plot_with_conf_intervals(measure="zipf_clauset")
 	plt.xlabel("Year")
@@ -59,7 +59,7 @@ def big_fig():
 
 
 	# Model
-	ax4 = plt.subplot(gs[6:,:-1])
+	ax4 = plt.subplot(gs[6:,:-2])
 
 
 	entropy_rising_simulation()
@@ -67,10 +67,16 @@ def big_fig():
 	ax4.spines['right'].set_visible(False)
 	ax4.spines['top'].set_visible(False)
 
+
 	plt.tight_layout()
 
 	handles, labels = ax4.get_legend_handles_labels()
-	ax4.legend(handles[:], ["Consumed", "Ignored"], title="Information", frameon=True, loc='center left', bbox_to_anchor=(0.97, 0.5))
+	ax4.figure.legend(handles[:], ["Consumed", "Ignored"], title="Information", 
+		bbox_to_anchor=(1.0, 0.7), 
+          bbox_transform=ax4.transAxes,
+          frameon=True, loc='center left')
+	
+	ax4.get_legend().remove()
 
 
 	plt.savefig("images/entropy_rising_new.tiff", format="tiff", dpi=300)
