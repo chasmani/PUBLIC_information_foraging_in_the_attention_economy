@@ -222,10 +222,6 @@ def plot_timeseries_with_media_categories(measure="H_1", measure_name="Word Entr
 	plt.show()
 
 
-
-
-
-
-
 if __name__=="__main__":
-	plot_timeseries_with_media_categories(measure="ttr", measure_name="Type Token Ratio")
+	get_timeseries_combined_plot_with_conf_intervals()
+	plt.show()

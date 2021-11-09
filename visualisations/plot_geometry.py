@@ -157,5 +157,5 @@ def plot_media_category_differences():
 
 
 if __name__=="__main__":
-	plot_media_category_differences()
+	plot_short_vs_long_low_prevalence()
 	plt.show()
